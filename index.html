@@ -42,7 +42,7 @@ AFRAME.registerComponent('fit-to-marker', {
     missTolerance="10"
     >
       <a-assets>
-        <a-asset-item id="RMACity" src="https://myleasha.github.io/RMA-AR/assets/RMA_Full_CIty.glb"></a-asset-item>
+        <a-asset-item id="RMA_Full_CIty" src="https://myleasha.github.io/RMA-AR/assets/RMA_Full_CIty.glb"></a-asset-item>
         <!--Copy the asset line above here to add another asset-->
       </a-assets>
 
@@ -50,7 +50,7 @@ AFRAME.registerComponent('fit-to-marker', {
 
       <a-entity mindar-image-target="targetIndex: 0">
         <a-gltf-model 
-        rotation="0 0 0 " position="0 0 0" scale="1 1 1" src="#RMACity" fit-to-marker="targetSize: 0.7"></a-gltf-model> <!-- animation-mixer for animations -->
+        rotation="0 0 0 " position="0 0 0" scale="1 1 1" src="#RMA_Full_CIty" fit-to-marker="targetSize: 0.7"></a-gltf-model> <!-- animation-mixer for animations -->
         
       </a-entity>
 </a-entity>
@@ -58,5 +58,6 @@ AFRAME.registerComponent('fit-to-marker', {
     </a-scene>
   </body>
 </html>
+
 
 
