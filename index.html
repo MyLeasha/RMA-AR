@@ -6,22 +6,58 @@
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
   </head>
-   <body>
-    <a-scene mindar-image="imageTargetSrc: https://myleasha.github.io/RMA-AR/assets/Targets/ARtargets.mind; showStats: true;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-      <a-assets>
-        <img id="card" src="https://myleasha.github.io/RMA-AR/assets/Images/targets.png" />
-        <a-asset-item id="RMACity" src="https://myleasha.github.io/RMA-AR/assets/RMA_Full_CIty.glb"></a-asset-item>
-      </a-assets>
+  <body>
 
+  <script>
+AFRAME.registerComponent('fit-to-marker', {
+  schema: { targetSize: { default: 0.7 } }, // fraction of marker width (marker ~ 1 unit wide)
+  init: function () {
+    this.el.addEventListener('model-loaded', () => {
+      const obj = this.el.getObject3D('mesh');
+      if (!obj) return;
+
+      const box = new THREE.Box3().setFromObject(obj);
+      const size = new THREE.Vector3();
+      box.getSize(size);
+
+      const maxDim = Math.max(size.x, size.y, size.z);
+      if (maxDim === 0) return;
+
+      const s = this.data.targetSize / maxDim;
+      this.el.object3D.scale.set(s, s, s);
+    });
+  }
+});
+</script>
+    
+    
+    <a-scene 
+      mindar-image="imageTargetSrc: https://myleasha.github.io/RMA-AR/assets/Targets/ARtargets.mind;
+      filterMinCF: 0.0001;
+      filterBeta: 0.001;
+      warmupTolerance: 3;
+      missTolerance: 10;"
+      color-space="sRGB"
+      embedded
+      loading-screen="enabled: false"
+      renderer="alpha: true; colorManagement: true; physicallyCorrectLights: true"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false">
+
+      <a-assets>
+        <a-asset-item id="RMA_Full_CIty" src="https://myleasha.github.io/RMA-AR/assets/RMA_Full_CIty.glb"></a-asset-item>
+        <!--Copy the asset line above here to add another asset-->
+      </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
-        <a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#RMACity" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
+        <!-- <a-gltf-model 
+        rotation="0 0 0 " position="0 0 0.1" scale="1 1 1" src="#RMA_Full_CIty" fit-to-marker="targetSize: 0.7"></a-gltf-model> <!-- animation-mixer for animations -->
+      -->  -->
+      <a-box color="#00ff00" depth="0.2" height="0.2" width="0.2" position="0 0 0.1"></a-box>
       </a-entity>
+       <!--Copy the 3 asset lines above here to add another asset -->
     </a-scene>
   </body>
 </html>
-
