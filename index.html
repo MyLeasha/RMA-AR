@@ -3,6 +3,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+	<script>
+  		AFRAME.registerComponent('go-to-url', {
+    	schema: { url: { type: 'string' } },
+    	init: function () {
+      	this.el.addEventListener('click', () => {
+        // same-tab navigation (most reliable on mobile)
+        window.location.href = this.data.url;
+      	});
+    	}
+  		});
+	</script>
+  
   </head>
   <body>
     <a-scene 
@@ -40,7 +52,8 @@
   			position="1 0.00 0.12"
   			width="0.25"
   			height="0.15"
-  			material="color: #12B4DDFF; shader: flat; opacity: 0.95">
+  			material="color: #12B4DDFF; shader: flat; opacity: 0.95"
+			class="clickable" go-to-url="url: https://www.youtube.com/" >
 			</a-plane>
 
 			<a-text
@@ -69,6 +82,7 @@
     </a-scene>
   </body>
 </html>
+
 
 
 
