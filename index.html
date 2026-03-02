@@ -8,7 +8,7 @@
   </head>
   <body>
 
-    <script>
+  <!--  <script>
 AFRAME.registerComponent('fit-to-marker', {
   schema: { targetSize: { default: 0.7 } }, // fraction of marker width (marker ~ 1 unit wide)
   init: function () {
@@ -28,9 +28,9 @@ AFRAME.registerComponent('fit-to-marker', {
     });
   }
 });
-</script>
+</script> -->
     
-   <!-- <a-scene 
+    <a-scene 
     mindar-image="imageTargetSrc: https://myleasha.github.io/RMA-AR/assets/Targets/ARtargets.mind;"
     color-space="sRGB"
     renderer="colorManagement: true, physicallyCorrectLights"
@@ -40,10 +40,7 @@ AFRAME.registerComponent('fit-to-marker', {
     filterBeta="0.001"
     warmupTolerance="3"
     missTolerance="10"
-    > -->
-      <a-scene mindar-image="imageTargetSrc: https://myleasha.github.io/RMA-AR/assets/Targets/ARtargets.mind;" 
-      vr-mode-ui="enabled: false" 
-      device-orientation-permission-ui="enabled: false">
+    >
         
       <a-assets>
         <a-asset-item id="RMA_Full_CIty" src="https://myleasha.github.io/RMA-AR/assets/RMA_Full_CIty.glb"></a-asset-item>
@@ -57,11 +54,11 @@ AFRAME.registerComponent('fit-to-marker', {
         rotation="0 0 0 " position="0 0 0" scale="1 1 1" src="#RMA_Full_CIty" fit-to-marker="targetSize: 0.7"></a-gltf-model> <!-- animation-mixer for animations -->
         
       </a-entity>
-</a-entity>
        <!--Copy the 3 asset lines above here to add another asset -->
     </a-scene>
   </body>
 </html>
+
 
 
 
