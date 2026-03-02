@@ -30,18 +30,20 @@ AFRAME.registerComponent('fit-to-marker', {
 });
 </script> -->
     
+    
     <a-scene 
-    mindar-image="imageTargetSrc: https://myleasha.github.io/RMA-AR/assets/Targets/ARtargets.mind;"
-    color-space="sRGB"
-    renderer="colorManagement: true, physicallyCorrectLights"
-    vr-mode-ui="enabled: false"
-    device-orientation-permission-ui="enabled: false" 
-    filterMinCF="0.0001"
-    filterBeta="0.001"
-    warmupTolerance="3"
-    missTolerance="10"
-    >
-        
+      mindar-image="imageTargetSrc: https://myleasha.github.io/RMA-AR/assets/Targets/ARtargets.mind;
+      filterMinCF: 0.0001;
+      filterBeta: 0.001;
+      warmupTolerance: 3;
+      missTolerance: 10;"
+      color-space="sRGB"
+      embedded
+      loading-screen="enabled: false"
+      renderer="alpha: true; colorManagement: true; physicallyCorrectLights: true"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false">
+
       <a-assets>
         <a-asset-item id="RMA_Full_CIty" src="https://myleasha.github.io/RMA-AR/assets/RMA_Full_CIty.glb"></a-asset-item>
         <!--Copy the asset line above here to add another asset-->
