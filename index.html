@@ -32,7 +32,7 @@
       <a-assets>
 		<a-asset-item id="RMA_Full_CIty" src="https://myleasha.github.io/RMA-AR/assets/RMA_Full_CIty.glb"></a-asset-item>
 		<a-asset-item id="RMA_Full_CIty_Round" src="https://myleasha.github.io/RMA-AR/assets/RMA_Full_CIty_Round.glb"></a-asset-item>
-		<a-asset-item id="HoverBadge" src="https://myleasha.github.io/RMA-AR/assets/Images/HoverBadge.png"></a-asset-item>  
+		<img m id="HoverBadge" src="https://myleasha.github.io/RMA-AR/assets/Images/HoverBadge.png"></img>  
       </a-assets>   
 
       
@@ -41,7 +41,7 @@
 
       <a-entity mindar-image-target="targetIndex: 0">
         	<!-- <a-gltf-model src="#RMA_Full_CIty" rotation="0 0 0 " position="0 0 0" scale="0.08 0.08 0.08"></a-gltf-model> -->
-			<a-gltf-model src="#RMA_Full_CIty_Round" position="0 0 0" rotation="0 0 0" scale="0.08 0.08 0.08" animation="property: rotation; to: 0 0 360; dur: 20000; easing: linear; loop: true"></a-gltf-model>
+			<a-gltf-model src="#RMA_Full_CIty_Round" position="0 0 0" rotation="0 0 0" scale="0.1 0.1 0.1" animation="property: rotation; to: 0 0 360; dur: 40000; easing: linear; loop: true"></a-gltf-model>
 			<a-plane src="#HoverBadge" position="0 0 0.3" height="0.552" width="1" rotation="0 0 0"></a-plane>
 		  
 			<a-plane id="cta" class="clickable" scale="0.08 0.08 0.08" position="0.8 0.75 0" width="5" height="1.5" material="color: #12b4dd; shader: flat; opacity: 0.95" go-to-url="url: https://www.youtube.com/" ></a-plane>
@@ -85,5 +85,6 @@
     </a-scene>
   </body>
 </html>
+
 
 
