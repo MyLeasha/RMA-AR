@@ -1,2 +1,2 @@
 # RMA-AR
-RMA AR Testing with HTTPS
+RMA AR with HTTPS
